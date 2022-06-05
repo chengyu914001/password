@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <script type="text/javascript">
+        if({{ .status}} == "Running"){
+            alert("password is running");
+        }else{
+            alert("test")
+        }
+    </script>
+    <form method="POST" enctype="multipart/form-data">
+        <input name="file" type="file"><br>
+        最短長度<input name="startLen" type="text" value=3><br>
+        最長密碼<input name="endLen" type="text" value=5><br>
+        使用全數字<input name="AllNumber" type="checkbox" checked><br>
+        使用全大寫字母<input name="AllUppercase" type="checkbox"><br>
+        使用全小寫字母<input name="AllLowercase" type="checkbox" checked><br>
+        使用全特殊符號<input name="AllSpecial" type="checkbox"><br>
+        自定義使用字元<input name="defineOthers" type="text"><br>
+        正則表示<input name="regexp", type="text", value=".*"><br>
+        <input type="submit">
+    </form>
+</body>
+
+</html>
