@@ -16,8 +16,10 @@ func Set7zPath(path string) {
 
 // Public mathos -------------------------------------------------------------------------
 func (obj *PasswordFinder)Find7ZPassword(startLen uint8, endLen uint8, filename string, runSize uint8) string{
+	log.Println("filename:" ,filename)
 	f := func(password string) bool {
-		return exec.Command(path7z, "t", filename, "-p" + password).Run() == nil
+		err := exec.Command(path7z, "t", filename, "-p" + password).Run()
+		return err == nil
 	}
 	return obj.findPassword(startLen, endLen, filename, f, runSize)
 }
@@ -31,8 +33,8 @@ func (obj *PasswordFinder)findPassword(startLen uint8, endLen uint8, filename st
 	result := ""
 	for i := startLen; i <= endLen; i++ {
 		passwordGenerator := obj.PasswordGenerator(i)
-		log.Println("Running password length", i)
 		for password := range passwordGenerator {
+
 			wg.Add(1)
 			runBuffer<-struct{}{}
 			go func(password string, wg *sync.WaitGroup, res *string, runBuffer <-chan struct{}){
@@ -40,6 +42,7 @@ func (obj *PasswordFinder)findPassword(startLen uint8, endLen uint8, filename st
 					<-runBuffer
 					wg.Done()
 				}()
+
 				if exe(password) {
 					obj.Stop()
 

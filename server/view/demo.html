@@ -6,10 +6,11 @@
 
 <body>
     <script type="text/javascript">
-        if({{ .status}} == "Running"){
-            alert("password is running");
-        }else{
-            alert("test")
+        if({{ .status }} == "Running"){
+            alert("Please wait a moment!")
+            location.reload();
+        }else if({{ .answer }} != null){
+            alert("Your passwoed is {{ .answer }}");
         }
     </script>
     <form method="POST" enctype="multipart/form-data">

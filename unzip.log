@@ -1,7 +1,7 @@
-2022/06/06 06:20:27 filename: passwordTest.zip
-2022/06/06 06:20:27 Table: 0123456789
-2022/06/06 06:20:27 regexp: .*
-2022/06/06 06:20:27 Password len is 3 to 3 .
-2022/06/06 06:20:27 Cmd type 7z.exe
-2022/06/06 06:20:27 start!
-2022/06/06 06:20:27 password is : 123
+2022/06/12 03:24:46 filename: passwordTest.zip
+2022/06/12 03:24:46 Table: 0123456789
+2022/06/12 03:24:46 regexp: .*
+2022/06/12 03:24:46 Password len is 3 to 3 .
+2022/06/12 03:24:46 Cmd type 7z.exe
+2022/06/12 03:24:46 start!
+2022/06/12 03:24:46 password is : 123
